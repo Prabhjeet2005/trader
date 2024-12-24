@@ -1,0 +1,5 @@
+https://drive.google.com/drive/folders/1C-OFBepQgMq45r48PFvakTSTPyFI3a_9
+
+ZerodhaProject You can access the complete projectcode from here:
+https://github.com/apna-college/Zerodha[FinalCode]
+https://github.com/apna-college/zerodha-clone[Branchwisecommits]
