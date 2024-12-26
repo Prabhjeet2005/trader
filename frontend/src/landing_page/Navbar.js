@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -9,42 +10,45 @@ const Navbar = () => {
 				<div className="flex justify-between items-center h-16">
 					{/* Logo */}
 					<div className="flex-shrink-0">
-						<a href="/">
-							<img
-								src="/media/images/logo.svg"
-								alt="Zerodha Logo"
-								className="h-8"
-							/>
-						</a>
+						<Link
+						to="/"
+						>
+						<img
+							src="/media/images/logo.svg"
+							alt="Zerodha Logo"
+							className="h-8"
+						/>
+						</Link>
+						
 					</div>
 
 					{/* Desktop Menu */}
 					<div className="hidden md:flex space-x-6 items-center">
-						<a
-							href="#"
+						<Link
+							to="/signup"
 							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Signup
-						</a>
-						<a
-							href="#"
+						</Link>
+						<Link
+							to="/about"
 							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							About
-						</a>
-						<a
-							href="#"
+						</Link>
+						<Link
+							to="/products"
 							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Products
-						</a>
-						<a
-							href="#"
+						</Link>
+						<Link
+							to="/pricing"
 							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Pricing
-						</a>
-						<a
-							href="#"
+						</Link>
+						<Link
+							to="/support"
 							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Support
-						</a>
+						</Link>
 					</div>
 
 					{/* Mobile Menu Button */}
@@ -63,27 +67,27 @@ const Navbar = () => {
 				<div className="md:hidden bg-gray-50">
 					<div className="space-y-2 p-4">
 						<a
-							href="#"
+							to="/"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Signup
 						</a>
 						<a
-							href="#"
+							to="/"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							About
 						</a>
 						<a
-							href="#"
+							to="/"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Products
 						</a>
 						<a
-							href="#"
+							to="/"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Pricing
 						</a>
 						<a
-							href="#"
+							to="/"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Support
 						</a>

@@ -4,7 +4,7 @@ const Hero = () => {
 	return (
 		<div className="text-center space-y-2 p-5">
 			<img className="p-14" src="media/images/homeHero.png" alt="" />
-			<h1 className="mt-5 mb-4 text-6xl font-semibold ">Invest in everything</h1>
+			<h1 className="mt-5 mb-4 text-gray-600 text-6xl font-medium ">Invest in everything</h1>
 			<p className="text-xl">
 				Online platform to invest in stocks, derivatives, mutual funds, and more
 			</p>
