@@ -10,43 +10,40 @@ const Navbar = () => {
 				<div className="flex justify-between items-center h-16">
 					{/* Logo */}
 					<div className="flex-shrink-0">
-						<Link
-						to="/"
-						>
-						<img
-							src="/media/images/logo.svg"
-							alt="Zerodha Logo"
-							className="h-8"
-						/>
+						<Link to="/">
+							<img
+								src="/media/images/logo.svg"
+								alt="ZerodhaLogo"
+								className="h-8 p-1"
+							/>
 						</Link>
-						
 					</div>
 
 					{/* Desktop Menu */}
 					<div className="hidden md:flex space-x-6 items-center">
 						<Link
 							to="/signup"
-							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Signup
 						</Link>
 						<Link
 							to="/about"
-							className="text-gray-700 active:bg-blue-500 rounded-lg px-2 py-2 font-medium hover:bg-blue-400 hover:text-white transition">
+							className="text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							About
 						</Link>
 						<Link
 							to="/products"
-							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Products
 						</Link>
 						<Link
 							to="/pricing"
-							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Pricing
 						</Link>
 						<Link
 							to="/support"
-							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Support
 						</Link>
 					</div>
@@ -68,27 +65,27 @@ const Navbar = () => {
 					<div className="space-y-2 p-4">
 						<Link
 							to="/signup"
-							className="block text-gray-700 font-medium hover:text-blue-500 transition">
+							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Signup
 						</Link>
 						<Link
 							to="/about"
-							className="block text-gray-700 font-medium hover:text-blue-500 transition">
+							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							About
 						</Link>
 						<Link
 							to="/products"
-							className="block text-gray-700 font-medium hover:text-blue-500 transition">
+							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Products
 						</Link>
 						<Link
 							to="/pricing"
-							className="block text-gray-700 font-medium hover:text-blue-500 transition">
+							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Pricing
 						</Link>
 						<Link
 							to="/support"
-							className="block text-gray-700 font-medium hover:text-blue-500 transition">
+							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Support
 						</Link>
 					</div>

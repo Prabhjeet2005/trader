@@ -1,5 +1,5 @@
 import React from 'react'
-import Hero from '../about/Hero'
+import Hero from '../support/Hero'
 import CreateTicket from './CreateTicket';
 
 const SupportPage = () => {

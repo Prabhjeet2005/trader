@@ -51,7 +51,7 @@ const Stats = () => {
 						Explore our products <i class="fa-solid fa-arrow-right-long"></i>
 					</a>
 					<a href="/" className="transition-all font-medium text-blue-500 hover:scale-110">
-						Try Kite demo <i class="fa-solid fa-arrow-right-long"></i>{" "}
+						Try Kite demo <i class="fa-solid fa-arrow-right-long"></i>
 					</a>
 				</div>
 			</div>

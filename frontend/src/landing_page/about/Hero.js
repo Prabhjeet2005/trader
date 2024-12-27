@@ -63,7 +63,7 @@ const Hero = () => {
 							<img
 								src="/media/images/nithinKamath.jpg"
 								className="rounded-full"
-								alt="People Image"
+								alt="PeopleImage"
 							/>
 						</div>
 						<p className="mt-2 mb-1 font-medium text-xl">Nitin Kamath</p>
@@ -80,8 +80,9 @@ const Hero = () => {
 							(SMAC) and the Market Data Advisory Committee (MDAC).
 						</p>
 						<p>
-							Connect on <a href="">Homepage</a> / <a href="">TradingQnA</a> / <a href="">Twitter</a>
-
+							Connect on <a href="https://nithinkamath.me/">Homepage</a> /{" "}
+							<a href="https://tradingqna.com/u/nithin/summary">TradingQnA</a> /{" "}
+							<a href="https://x.com/Nithin0dha">Twitter</a>
 						</p>
 					</div>
 				</div>
