@@ -31,7 +31,7 @@ const Navbar = () => {
 						</Link>
 						<Link
 							to="/about"
-							className="text-gray-700 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="text-gray-700 active:bg-blue-500 rounded-lg px-2 py-2 font-medium hover:bg-blue-400 hover:text-white transition">
 							About
 						</Link>
 						<Link
@@ -66,31 +66,31 @@ const Navbar = () => {
 			{menuOpen && (
 				<div className="md:hidden bg-gray-50">
 					<div className="space-y-2 p-4">
-						<a
-							to="/"
+						<Link
+							to="/signup"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Signup
-						</a>
-						<a
-							to="/"
+						</Link>
+						<Link
+							to="/about"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							About
-						</a>
-						<a
-							to="/"
+						</Link>
+						<Link
+							to="/products"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Products
-						</a>
-						<a
-							to="/"
+						</Link>
+						<Link
+							to="/pricing"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Pricing
-						</a>
-						<a
-							to="/"
+						</Link>
+						<Link
+							to="/support"
 							className="block text-gray-700 font-medium hover:text-blue-500 transition">
 							Support
-						</a>
+						</Link>
 					</div>
 				</div>
 			)}
