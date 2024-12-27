@@ -1,16 +1,14 @@
-import React from 'react'
-import Hero from '../support/Hero'
-import CreateTicket from './CreateTicket';
+import React from "react";
+import Hero from "../support/Hero";
+import CreateTicket from "./CreateTicket";
 
 const SupportPage = () => {
-  return (
-    <>
+	return (
+		<>
+			<Hero />
+			<CreateTicket />
+		</>
+	);
+};
 
-      <Hero />
-      <CreateTicket />
-
-    </>
-  )
-}
-
-export default SupportPage
+export default SupportPage;
