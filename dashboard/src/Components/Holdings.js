@@ -7,22 +7,22 @@ const Holdings = () => {
 			<h3 className="title">Holdings ({holdings.length})</h3>
 			<div className="row mb-5">
 				<div className="col">
+					<p>Total investment</p>
 					<h5>
 						29,875.<span>55</span>{" "}
 					</h5>
-					<p>Total investment</p>
 				</div>
 				<div className="col">
+					<p>Current value</p>
 					<h5>
 						31,428.<span>95</span>{" "}
 					</h5>
-					<p>Current value</p>
 				</div>
 				<div className="col">
+					<p>P & L</p>
 					<h5>
 						1,553.40 <span className="text-xs">(+5.20%)</span>
 					</h5>
-					<p>P&L</p>
 				</div>
 			</div>
 			<div className="order-table">

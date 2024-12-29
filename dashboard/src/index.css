@@ -103,7 +103,7 @@ code {
   justify-content: space-between;
 }
 
-.table .data > * {
+.table .data>* {
   margin-bottom: 5%;
 }
 
@@ -188,7 +188,7 @@ code {
 }
 
 .order-table tr td:last-child {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 
 .order-table td {
@@ -408,15 +408,15 @@ hr {
 }
 
 .order-table tr td:first-child p {
-    background: rgb(255, 197, 197);
-    color: rgb(233, 120, 120);
-    width: 50%;
-    text-align: center;
-    border-radius: 2px;
+  background: rgb(255, 197, 197);
+  color: rgb(233, 120, 120);
+  width: 50%;
+  text-align: center;
+  border-radius: 2px;
 }
 
 .order-table tr td:last-child {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 
 .order-table td {
@@ -602,8 +602,8 @@ hr {
   justify-content: space-evenly;
 }
 
-.nifty > *,
-.sensex > * {
+.nifty>*,
+.sensex>* {
   margin-right: 8px;
 }
 
@@ -678,13 +678,19 @@ hr {
   position: relative;
 }
 
-.item {
+/* .item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-weight: 300;
   font-size: 0.8rem;
   position: relative;
+} */
+
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .item-info {
@@ -693,7 +699,7 @@ hr {
   align-items: center;
 }
 
-.item-info > * {
+.item-info>* {
   margin-right: 8px;
 }
 
@@ -812,7 +818,7 @@ hr {
   background-color: #f3f3f3;
 }
 
-.list li:hover > .actions {
+.list li:hover>.actions {
   display: flex;
   cursor: move;
 }
@@ -841,12 +847,7 @@ hr {
 .action:hover {
   background-color: rgb(212, 212, 212);
 }
-
-.menu.enabled{
-  background-color: rgb(46, 87, 223);
-  color: white;
-}
-
-.no-scroll{
-  overflow-y:hidden ;
+.watchActionWidth{
+  min-width: 40px;
+  margin-left: 3px;
 }
