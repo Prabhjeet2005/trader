@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Tooltip } from "@mui/material";
 import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+import GeneralContext from "./GeneralContext";
 const WatchListItem = ({ stock, index }) => {
 	const [showWatchListActions, setShowWatchListActions] = useState(false);
 
@@ -37,11 +38,17 @@ const WatchListItem = ({ stock, index }) => {
 };
 
 const WatchListAction = ({ uid }) => {
+	const generalContext = useContext(GeneralContext);
+
+	const handleBuyClick = () => {
+		generalContext.openBuyWindow(uid);
+	}
+
 	return (
 		<div className="absolute min-w-40 bg-white right-0 m-1">
 			<div className="flex justify-evenly">
 				<Tooltip title="Buy Stock" placement="top" arrow>
-					<button className="bg-green-500 watchActionWidth text-white p-1 font-medium rounded ">
+					<button onClick={handleBuyClick} className="bg-green-500 watchActionWidth text-white p-1 font-medium rounded ">
 						Buy
 					</button>
 				</Tooltip>
