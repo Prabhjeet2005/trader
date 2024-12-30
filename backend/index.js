@@ -1,13 +1,17 @@
 require("dotenv").config();
 const express = require("express");
-
+const cors = require('cors')
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI);
 
 const { Holdings } = require("./models/Holdings.model");
 const { Position } = require("./models/Position.model");
+const bodyParser = require("body-parser");
 
 const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
 	res.send("Hello");
@@ -19,7 +23,7 @@ app.get("/allPositions", async (req, res) => {
 });
 
 app.get("/allHoldings", async (req, res) => {
-	const allHoldings = await Position.find({});
+	const allHoldings = await Holdings.find({});
 	res.status(201).json(allHoldings);
 })
 
