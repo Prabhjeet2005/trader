@@ -1,29 +1,30 @@
 import React, { useContext, useState } from "react";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ClearIcon from "@mui/icons-material/Clear";
-import GeneralContext from "./GeneralContext";
 import { Bounce, ToastContainer, toast } from "react-toastify";
+import GeneralContext from "./GeneralContext";
 import axios from "axios";
 
-const BuyStockWindow = ({ uid, price }) => {
+const SellStockWindow = ({ uid,price }) => {
 	const [stockQuantity, setStockQuantity] = useState(1);
-	const [stockPrice, setStockPrice] = useState(price);
+  const [stockPrice, setStockPrice] = useState(price);
 	const [priceRequired, setPriceRequired] = useState(price);
+  
 
 	const generalContext = useContext(GeneralContext);
 
 	const handleCancelClick = () => {
-		generalContext.closeBuyWindow();
+		generalContext.closeSellWindow();
 	};
 
-	const handleBuyClick = () => {
-		axios.post("http://localhost:8000/placeOrder", {
+  const handleBuyClick = () => {
+    axios.post("http://localhost:8000/sellOrder", {
 			name: uid,
 			qty: stockQuantity,
 			price: stockPrice,
-			mode: "BUY",
+			mode: "SELL",
 		});
-		toast("Buy Order Placed Successfully!", {
+		toast("Sell Order Placed Successfully!", {
 			position: "top-center",
 			autoClose: 2000,
 			hideProgressBar: false,
@@ -34,13 +35,13 @@ const BuyStockWindow = ({ uid, price }) => {
 			theme: "light",
 			transition: Bounce,
 		});
-		generalContext.closeBuyWindow();
+		generalContext.closeSellWindow();
 	};
 
 	return (
 		<div className="pb-4 absolute left-[33%] bottom-0 h-[45%]  bg-gray-50 flex flex-col gap-2 text-xs max-h-fit w-2/6">
 			<div className="text-center p-1 font-medium bg-blue-300 rounded-t-xl">
-				Purchase Window ({uid})
+				Sell Window ({uid})
 			</div>
 
 			<div className="flex items-center gap-3  pl-2 flex-col ">
@@ -54,8 +55,8 @@ const BuyStockWindow = ({ uid, price }) => {
 							name="qty"
 							id="qty"
 							onChange={(e) => {
-								setStockQuantity(e.target.value);
-								setPriceRequired(stockPrice * e.target.value);
+                setStockQuantity(e.target.value);
+                setPriceRequired(e.target.value * stockPrice);
 							}}
 							value={stockQuantity}
 						/>
@@ -70,14 +71,15 @@ const BuyStockWindow = ({ uid, price }) => {
 							id="price"
 							onChange={(e) => {
 								setStockPrice(e.target.value);
-								setPriceRequired(e.target.value * stockQuantity);
+                setPriceRequired(e.target.value * stockQuantity);
+
 							}}
 							value={stockPrice}
 						/>
 					</div>
 				</div>
 
-				<div>Margin Required: ₹{priceRequired.toFixed(2)} </div>
+        <div>Amount Recievable: ₹{ priceRequired.toFixed(2) }</div>
 				<div className="flex ">
 					<button
 						onClick={handleBuyClick}
@@ -95,4 +97,4 @@ const BuyStockWindow = ({ uid, price }) => {
 	);
 };
 
-export default BuyStockWindow;
+export default SellStockWindow;

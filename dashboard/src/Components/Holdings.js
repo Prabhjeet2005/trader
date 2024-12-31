@@ -51,7 +51,7 @@ const Holdings = () => {
 						const currValue = stock.price * stock.qty;
 						const isProfit = currValue - stock.avg * stock.qty >= 0.0;
 						const profClass = isProfit ? "profit" : "loss";
-						const dayClass = stock.isLoss ? "loss" : "profit";
+						const dayClass = stock.day[0]=='+'?"profit":"loss";
 						return (
 							<tr key={index}>
 								<td>{stock.name}</td>

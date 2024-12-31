@@ -43,6 +43,21 @@ const Menu = () => {
 					</Link>
 				</div>
 				<div>
+					<Link to="/orders">
+						<p
+							onClick={() => {
+								handleMenuClick(5);
+							}}
+							className={
+								selectedMenu === 5
+									? "text-white bg-blue-600 p-2 rounded transition"
+									: "hover:text-white hover:bg-blue-500 p-2 rounded transition"
+							}>
+							Orders
+						</p>
+					</Link>
+				</div>
+				<div>
 					<Link to="/positions">
 						<p
 							onClick={() => {
@@ -115,6 +130,21 @@ const Menu = () => {
 												: "hover:text-white hover:bg-blue-500 p-2 rounded transition"
 										}>
 										Holdings
+									</p>
+								</Link>
+							</div>
+							<div>
+								<Link to="/orders">
+									<p
+										onClick={() => {
+											handleMenuClick(5);
+										}}
+										className={
+											selectedMenu === 5
+												? "text-white bg-blue-600 border-b p-2 rounded transition"
+												: "hover:text-white hover:bg-blue-500 border-b p-2 rounded transition"
+										}>
+										Orders
 									</p>
 								</Link>
 							</div>

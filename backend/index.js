@@ -7,6 +7,7 @@ mongoose.connect(process.env.MONGODB_URI);
 const { Holdings } = require("./models/Holdings.model");
 const { Position } = require("./models/Position.model");
 const bodyParser = require("body-parser");
+const { Orders } = require("./models/Order.model");
 
 const app = express();
 
@@ -25,6 +26,34 @@ app.get("/allPositions", async (req, res) => {
 app.get("/allHoldings", async (req, res) => {
 	const allHoldings = await Holdings.find({});
 	res.status(201).json(allHoldings);
+})
+
+app.post("/placeOrder", async (req, res) => {
+	const tempOrder = new Orders({
+		name: req.body.name,
+		qty: req.body.qty,
+		price: req.body.price,
+		mode: "BUY",
+	});
+	
+	tempOrder.save();
+	res.json(tempOrder);
+})
+
+app.post("/sellOrder", async (req, res) => {
+	const tempSell = new Orders({
+		name: req.body.name,
+		qty: req.body.qty,
+		price: req.body.price,
+		mode: "SELL",
+	});
+	tempSell.save();
+	res.json(tempSell);
+})
+
+app.get("/getOrders", async (_, res) => {
+	const tempOrder = await Orders.find({});
+	res.json(tempOrder);
 })
 
 app.listen(process.env.PORT || 8000, () => {

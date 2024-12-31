@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { Bounce, ToastContainer } from "react-toastify";
+
 
 import Apps from "./Apps";
 import Funds from "./Funds";
@@ -14,6 +16,20 @@ import { GeneralContextProvider } from "./GeneralContext";
 const Dashboard = () => {
 	return (
 		<div className="dashboard-container">
+			<ToastContainer
+				position="top-center"
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+				transition={Bounce}
+			/>
+			;
 			<GeneralContextProvider>
 				<WatchList />
 			</GeneralContextProvider>

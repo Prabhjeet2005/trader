@@ -13,8 +13,12 @@ const WatchListItem = ({ stock, index }) => {
 		setShowWatchListActions(false);
 	};
 
+	const handleMouseClick = (e) => {
+		setShowWatchListActions(!showWatchListActions);
+	}
+
 	return (
-		<li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+		<li onMouseEnter={handleMouseEnter} onClick={handleMouseClick} onMouseLeave={handleMouseLeave}>
 			{/* Css item is Written otherwise hover won't work */}
 			<div className="item p-1 text-xs">
 				<p className={stock.isDown ? "text-green-500" : "text-red-600"}>
@@ -31,29 +35,37 @@ const WatchListItem = ({ stock, index }) => {
 						{stock.percent}
 					</span>
 				</div>
-      {showWatchListActions && <WatchListAction uid={stock.name} />}
-      </div>
+				{showWatchListActions && <WatchListAction price={stock.price} uid={stock.name} />}
+			</div>
 		</li>
 	);
 };
 
-const WatchListAction = ({ uid }) => {
+const WatchListAction = ({ uid,price }) => {
 	const generalContext = useContext(GeneralContext);
 
-	const handleBuyClick = () => {
-		generalContext.openBuyWindow(uid);
+	const handleBuyClick = () => {	// Opens from general Context
+		generalContext.openBuyWindow({uid,price});	// This Provides uid to General Context
+	};
+
+	const handleSellClick = () => {
+		generalContext.openSellWindow({uid,price});
 	}
 
 	return (
 		<div className="absolute min-w-40 bg-white right-0 m-1">
 			<div className="flex justify-evenly">
 				<Tooltip title="Buy Stock" placement="top" arrow>
-					<button onClick={handleBuyClick} className="bg-green-500 watchActionWidth text-white p-1 font-medium rounded ">
+					<button
+						onClick={handleBuyClick}
+						className="bg-green-500 watchActionWidth text-white p-1 font-medium rounded ">
 						Buy
 					</button>
 				</Tooltip>
 				<Tooltip color="red" title="Sell Stock" placement="top" arrow>
-					<button className="bg-red-600 watchActionWidth text-white p-1 font-medium rounded ">
+					<button
+						onClick={handleSellClick}
+						className="bg-red-600 watchActionWidth text-white p-1 font-medium rounded ">
 						Sell
 					</button>
 				</Tooltip>
