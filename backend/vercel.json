@@ -1,16 +1,23 @@
 {
   "version":2,
   "builds": [
-    {"src":"*.js","use":"@vercel/node"}
+    {"src":"index.js","use":"@vercel/node"}
   ],
   "routes":[
     {
-      "src":"/(.)",
-      "dest":"/",
+      "src":"/(.*)",
+      "dest":"index.js",
       "methods":["GET","POST","PUT","DELETE","PATCH","OPTIONS"],
       "headers":{
-        "Access-Control-Allow-Origin":"*"
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,PATCH,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization"
       }
     }
   ]
+  ,"env": {
+    "MONGODB_URI":"mongodb+srv://prabhjeetsandhu010:qwertyuiop@traderzerodhacloneclust.o0u1k.mongodb.net/TraderZerodhaCloneCluster?retryWrites=true&w=majority&appName=TraderZerodhaCloneCluster",
+    "TOKEN_KEY":"vabwiel&hJ$32Pmfnbrud83",
+    "TOKEN_EXPIRY":"4d"
+  }
 }
