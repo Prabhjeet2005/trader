@@ -14,6 +14,9 @@ const Signup = () => {
 				{
 					email: "Guest",
 					password: "Guest",
+				},
+				{
+					withCredentials: true,
 				}
 			);
 			const { success, message } = data;
@@ -76,6 +79,9 @@ const Signup = () => {
 					username: nameForm,
 					email: emailForm,
 					password: passwordForm,
+				},
+				{
+					withCredentials: true,
 				}
 			);
 			const { success, message } = data;

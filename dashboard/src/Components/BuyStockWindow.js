@@ -18,12 +18,18 @@ const BuyStockWindow = ({ uid, price }) => {
 	};
 
 	const handleBuyClick = () => {
-		axios.post("https://trader-pied-phi.vercel.app/placeOrder", {
-			name: uid,
-			qty: stockQuantity,
-			price: stockPrice,
-			mode: "BUY",
-		});
+		axios.post(
+			"https://trader-pied-phi.vercel.app/placeOrder",
+			{
+				name: uid,
+				qty: stockQuantity,
+				price: stockPrice,
+				mode: "BUY",
+			},
+			{
+				withCredentials: true,
+			}
+		);
 		toast("Buy Order Placed Successfully!", {
 			position: "top-center",
 			autoClose: 2000,
