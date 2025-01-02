@@ -32,7 +32,7 @@ const Signup = () => {
 					transition: Bounce,
 				});
 
-				window.location.href = "http://localhost:3001";
+				window.location.href = "https://trader-dashboard-final.vercel.app/";
 			} else {
 				toast(
 					{ message },
@@ -93,7 +93,7 @@ const Signup = () => {
 					transition: Bounce,
 				});
 
-				window.location.href = "http://localhost:3001";
+				window.location.href = "https://trader-dashboard-final.vercel.app/";
 			} else {
 				toast(
 					{ message },
