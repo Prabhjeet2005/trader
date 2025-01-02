@@ -17,7 +17,7 @@ const Menu = () => {
 	const [cookies, removeCookie] = useState([]);
 	const handleLogOut = () => {
 		removeCookie("token");
-		window.location.href = "http://localhost:3000";
+		window.location.href = "https://trader-frontend-omega.vercel.app/";
 	};
 	return (
 		<div className="flex font-medium justify-between items-center p-4 ">
