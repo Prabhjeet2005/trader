@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { holdings } from "../data/data";
 import axios from "axios";
+import {VerticalGraph} from "./VerticalGraph.js"
 
 const Holdings = () => {
 	const [allHoldings, setAllHoldings] = useState([]);
@@ -10,6 +11,21 @@ const Holdings = () => {
 			setAllHoldings(res.data);
 		});
 	}, []);
+
+	const labels = allHoldings.map((arr) =>  arr["name"] );
+
+	const data = {
+		labels,
+		datasets: [
+			{
+				label: "Stock Qty",
+				data: allHoldings.map((stock) => stock.qty),
+				backgroundColor: "orange",
+			},
+			
+		],
+	};
+
 
 	return (
 		<>
@@ -69,6 +85,8 @@ const Holdings = () => {
 					})}
 				</table>
 			</div>
+			<VerticalGraph data={data} />
+
 		</>
 	);
 };

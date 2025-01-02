@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BuyStockWindow from "./BuyStockWindow";
 import SellStockWindow from "./SellStockWindow";
+import { HorizontalGraph } from "./HorizontalGraph";
 
 const GeneralContext = React.createContext({
 	openBuyWindow: ({ uid, price }) => {},
@@ -8,6 +9,8 @@ const GeneralContext = React.createContext({
 
 	openSellWindow: ({ uid, price }) => {},
 	closeSellWindow: () => {},
+
+	openGraphWindow: () => {},
 });
 
 export const GeneralContextProvider = (props) => {
@@ -15,6 +18,8 @@ export const GeneralContextProvider = (props) => {
 	const [isSellWindowOpen, setIsSellWindowOpen] = useState(false);
 	const [selectStockUID, setSelectStockUID] = useState("");
 	const [stockPrice, setStockPrice] = useState(0);
+
+	const [isgraphOpen, setIsGraphOpen] = useState(true);
 
 	const handleOpenBuyWindow = ({ uid, price }) => {
 		setIsBuyWindowOpen(true);
@@ -27,7 +32,6 @@ export const GeneralContextProvider = (props) => {
 		setIsBuyWindowOpen(false);
 		setSelectStockUID("");
 		setStockPrice(0);
-
 		setIsSellWindowOpen(false);
 	};
 
@@ -47,6 +51,10 @@ export const GeneralContextProvider = (props) => {
 		setIsBuyWindowOpen(false);
 	};
 
+	const handleOpenGraphWindow = () => {
+		setIsGraphOpen(!isgraphOpen);
+	};
+
 	return (
 		<GeneralContext.Provider
 			value={{
@@ -54,6 +62,8 @@ export const GeneralContextProvider = (props) => {
 				closeBuyWindow: handleCloseBuyWindow,
 				openSellWindow: handleSellWindowOpen,
 				closeSellWindow: handleSellWindowClose,
+				openGraphWindow: handleOpenGraphWindow,
+				isgraphOpen,
 			}}>
 			{props.children}
 			{isBuyWindowOpen && (

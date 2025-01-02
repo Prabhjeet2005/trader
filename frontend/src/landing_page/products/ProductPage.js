@@ -4,7 +4,7 @@ import LeftImageRightText from "./LeftImageRightText";
 import RightImageLeftText from "./RightImageLeftText";
 import Universe from "./Universe";
 import Card from "./Card";
-
+import { Link } from "react-router-dom"
 const ProductPage = () => {
 	return (
 		<>
@@ -97,9 +97,11 @@ strategies without coding."
 						logoDescription="Personalized advice on life and health insurance. No spam and no mis-selling."
 					/>
 				</div>
-				<button className="rounded-lg mt-3 text-white font-semibold min-w-64 p-2 w-[30%] transition-all bg-blue-500 hover:bg-blue-600 hover:scale-110 focus:bg-blue-700">
-					Signup Now
-				</button>
+				<Link to={"/signup"}>
+					<button className="rounded-lg mt-3 text-white font-semibold min-w-64 p-2 w-[30%] transition-all bg-blue-500 hover:bg-blue-600 hover:scale-110 focus:bg-blue-700">
+						Signup Now
+					</button>
+				</Link>
 			</div>
 		</>
 	);

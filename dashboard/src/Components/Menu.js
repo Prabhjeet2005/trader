@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Menu = () => {
+	const navigate = useNavigate();
 	const [selectedMenu, setSelectedMenu] = useState(0);
 	const [profileOpen, setProfileOpen] = useState(false);
 
@@ -10,6 +12,12 @@ const Menu = () => {
 	};
 	const handleProfileOpen = () => {
 		setProfileOpen(!profileOpen);
+	};
+
+	const [cookies, removeCookie] = useState([]);
+	const handleLogOut = () => {
+		removeCookie("token");
+		window.location.href = "http://localhost:3000";
 	};
 	return (
 		<div className="flex font-medium justify-between items-center p-4 ">
@@ -84,21 +92,6 @@ const Menu = () => {
 									: "hover:text-white hover:bg-blue-500 p-2 rounded transition"
 							}>
 							Funds
-						</p>
-					</Link>
-				</div>
-				<div>
-					<Link to="/apps">
-						<p
-							onClick={() => {
-								handleMenuClick(4);
-							}}
-							className={
-								selectedMenu === 4
-									? "text-white bg-blue-600 p-2 rounded transition"
-									: "hover:text-white hover:bg-blue-500 p-2 rounded transition"
-							}>
-							Apps
 						</p>
 					</Link>
 				</div>
@@ -193,13 +186,28 @@ const Menu = () => {
 									</p>
 								</Link>
 							</div>
+							<div className="border-b">
+								<Link>
+									<p
+										onClick={handleLogOut}
+										className={
+											selectedMenu === 6
+												? "text-white bg-red-600 p-2 rounded transition"
+												: "hover:text-white hover:bg-red-500 p-2 rounded transition"
+										}>
+										Logout
+									</p>
+								</Link>
+							</div>
 						</div>
 					)}
 				</div>
 				<div className="hidden md:flex">
 					{profileOpen && (
 						<div className="absolute mt-3 w-28 bg-white rounded-lg  z-1 text-center shadow-lg right-5 ">
-							<div className="bg-red-600 p-2 rounded-lg text-white">
+							<div
+								className="bg-red-600 p-2 hover:cursor-pointer rounded-lg text-white"
+								onClick={handleLogOut}>
 								Logout <i class="fa-solid fa-right-from-bracket"></i>
 							</div>
 						</div>

@@ -10,12 +10,15 @@ import ProductsPage from "./landing_page/products/ProductPage.js";
 import SupportPage from "./landing_page/support/SupportPage.js";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
-import NotFound from "./landing_page/NotFound.js"
+import NotFound from "./landing_page/NotFound.js";
+import LoginPage from "./landing_page/signup/Login.js";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<BrowserRouter>
 		<Navbar />
+		<ToastContainer />
 		<Routes>
 			<Route path="/" element={<HomePage />} />
 			<Route path="/signup" element={<SignupPage />} />
@@ -23,6 +26,7 @@ root.render(
 			<Route path="/pricing" element={<PricingPage />} />
 			<Route path="/products" element={<ProductsPage />} />
 			<Route path="/support" element={<SupportPage />} />
+			<Route path="/login" element={<LoginPage />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 		<Footer />

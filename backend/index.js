@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require('cors')
+const cors = require("cors");
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -8,15 +8,19 @@ const { Holdings } = require("./models/Holdings.model");
 const { Position } = require("./models/Position.model");
 const bodyParser = require("body-parser");
 const { Orders } = require("./models/Order.model");
+const cookieParser = require("cookie-parser");
+const authRoute = require("./routes/AuthRoute.js");
 
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors({
 
-app.get("/", (req, res) => {
-	res.send("Hello");
-});
+}));
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(cookieParser());
+
+app.use("/", authRoute);
 
 app.get("/allPositions", async (req, res) => {
 	const allPositions = await Position.find({});
@@ -26,7 +30,7 @@ app.get("/allPositions", async (req, res) => {
 app.get("/allHoldings", async (req, res) => {
 	const allHoldings = await Holdings.find({});
 	res.status(201).json(allHoldings);
-})
+});
 
 app.post("/placeOrder", async (req, res) => {
 	const tempOrder = new Orders({
@@ -35,10 +39,10 @@ app.post("/placeOrder", async (req, res) => {
 		price: req.body.price,
 		mode: "BUY",
 	});
-	
+
 	tempOrder.save();
 	res.json(tempOrder);
-})
+});
 
 app.post("/sellOrder", async (req, res) => {
 	const tempSell = new Orders({
@@ -49,12 +53,19 @@ app.post("/sellOrder", async (req, res) => {
 	});
 	tempSell.save();
 	res.json(tempSell);
-})
+});
 
 app.get("/getOrders", async (_, res) => {
 	const tempOrder = await Orders.find({});
 	res.json(tempOrder);
-})
+});
+
+app.post("/deleteOrders", async (req, res) => {
+	const { _id } = req.body;
+	const tempOrder = await Orders.findByIdAndDelete({ _id });
+	const updatedOrder = await Orders.find({});
+	res.json(updatedOrder);
+});
 
 app.listen(process.env.PORT || 8000, () => {
 	console.log(`Server Listening PORT: ${process.env.PORT}`);

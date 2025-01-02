@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Tooltip } from "@mui/material";
 import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
@@ -16,12 +16,13 @@ const WatchListItem = ({ stock, index }) => {
 	const handleMouseClick = (e) => {
 		setShowWatchListActions(!showWatchListActions);
 	}
+	
 
 	return (
 		<li onMouseEnter={handleMouseEnter} onClick={handleMouseClick} onMouseLeave={handleMouseLeave}>
 			{/* Css item is Written otherwise hover won't work */}
 			<div className="item p-1 text-xs">
-				<p className={stock.isDown ? "text-green-500" : "text-red-600"}>
+				<p className={stock.isDown ? "text-red-600" : "text-green-500"}>
 					{stock.name}
 				</p>
 				<div className=" ">
@@ -51,7 +52,10 @@ const WatchListAction = ({ uid,price }) => {
 	const handleSellClick = () => {
 		generalContext.openSellWindow({uid,price});
 	}
-
+	const handleGraphClick = () => {
+		generalContext.openGraphWindow();
+	}
+	
 	return (
 		<div className="absolute min-w-40 bg-white right-0 m-1">
 			<div className="flex justify-evenly">
@@ -70,7 +74,7 @@ const WatchListAction = ({ uid,price }) => {
 					</button>
 				</Tooltip>
 				<Tooltip title="Analyse" placement="top" arrow>
-					<button className="bg-orange-500 watchActionWidth text-white p-1 font-medium rounded ">
+					<button onClick={handleGraphClick} className="bg-orange-500 watchActionWidth text-white p-1 font-medium rounded ">
 						<AutoGraphIcon />
 					</button>
 				</Tooltip>
