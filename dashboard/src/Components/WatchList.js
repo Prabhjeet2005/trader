@@ -43,7 +43,7 @@ const WatchList = () => {
 					})}
 				</ul>
 
-				{generalContext.isgraphOpen && <HorizontalGraph data={data} />}
+				{generalContext.isgraphOpen && <HorizontalGraph data={data}  />}
 			</div>
 		</>
 	);

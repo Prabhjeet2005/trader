@@ -6,13 +6,16 @@ const Signup = () => {
 	const navigate = useNavigate();
 	const [emailForm, setEmailForm] = useState("");
 	const [nameForm, setNameForm] = useState("");
-  const [passwordForm, setPasswordlForm] = useState("");
-  const handleGuest = async () => {
+	const [passwordForm, setPasswordlForm] = useState("");
+	const handleGuest = async () => {
 		try {
-			const { data } = await axios.post("http://localhost:8000/login", {
-				email: "Guest",
-				password: "Guest",
-			});
+			const { data } = await axios.post(
+				"https://trader-pied-phi.vercel.app/login",
+				{
+					email: "Guest",
+					password: "Guest",
+				}
+			);
 			const { success, message } = data;
 			console.log("Success: ", success);
 			console.log("Message: ", message);
@@ -63,22 +66,21 @@ const Signup = () => {
 		setEmailForm("");
 		setPasswordlForm("");
 	};
-  
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-    try {
-      const {data}  = await axios.post(
-				"http://localhost:8000/signup",
+		try {
+			const { data } = await axios.post(
+				"https://trader-pied-phi.vercel.app/signup",
 				{
 					username: nameForm,
 					email: emailForm,
 					password: passwordForm,
 				}
-      );
-      const { success, message } = data;
-      console.log("Success: ",success);
-      console.log("Message: ", message);
+			);
+			const { success, message } = data;
+			console.log("Success: ", success);
+			console.log("Message: ", message);
 			if (success) {
 				toast("User Registered", {
 					position: "top-center",
@@ -90,26 +92,28 @@ const Signup = () => {
 					progress: undefined,
 					theme: "light",
 					transition: Bounce,
-        });
-
-        window.location.href="http://localhost:3001";
-
-			} else {
-				toast({message}, {
-					position: "top-center",
-					autoClose: 2000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "light",
-					transition: Bounce,
 				});
+
+				window.location.href = "http://localhost:3001";
+			} else {
+				toast(
+					{ message },
+					{
+						position: "top-center",
+						autoClose: 2000,
+						hideProgressBar: false,
+						closeOnClick: true,
+						pauseOnHover: true,
+						draggable: true,
+						progress: undefined,
+						theme: "light",
+						transition: Bounce,
+					}
+				);
 			}
 		} catch (error) {
-      console.log(error);
-      toast.error("Something went wrong. Please try again.", {
+			console.log(error);
+			toast.error("Something went wrong. Please try again.", {
 				position: "top-center",
 				autoClose: 2000,
 				hideProgressBar: false,
