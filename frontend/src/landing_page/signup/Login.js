@@ -6,10 +6,10 @@ const Signup = () => {
 	const navigate = useNavigate();
 	const [emailForm, setEmailForm] = useState("");
 	const [passwordForm, setPasswordlForm] = useState("");
-	axios.defaults.withCredentials = true;
 
 	const handleGuest = async () => {
 		try {
+			axios.defaults.withCredentials = true;
 			const { data } = await axios.post(
 				"https://trader-backend-six.vercel.app/login",
 				{

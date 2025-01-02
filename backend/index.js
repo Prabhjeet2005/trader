@@ -13,35 +13,7 @@ const authRoute = require("./routes/AuthRoute.js");
 
 const app = express();
 
-const allowedOrigins = [
-	"https://trader-dashboard-final.vercel.app",
-	"https://trader-frontend-omega.vercel.app",
-	"http://localhost:8000",
-];
-
-app.use((req, res, next) => {
-	res.setHeader("Referrer-Policy", "unsafe-url"); // Or use "no-referrer-when-downgrade"
-	next();
-});
-
-const corsOptions = {
-	origin: "*",
-	methods: "GET,POST", // Allow necessary methods
-	allowedHeaders: "*",
-	credentials: true, // Allow cookies or credentials to be sent across origins
-};
-app.options("*", cors());
-app.use(cors(corsOptions));
-app.use((req, res, next) => {
-	res.header("Access-Control-Allow-Origin", "*"); // Allows all origins
-	res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-	res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
-	if (req.method === "OPTIONS") {
-		return res.status(200).end(); // Respond immediately to OPTIONS
-	}
-	next();
-});
-
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(express.json());
