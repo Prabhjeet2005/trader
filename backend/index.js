@@ -41,6 +41,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/", authRoute);
+app.get("/", (req, res) => {
+	res.send("Hi");
+})
 
 app.get("/allPositions", async (req, res) => {
 	const allPositions = await Position.find({});
