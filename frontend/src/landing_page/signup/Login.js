@@ -36,7 +36,7 @@ const Signup = () => {
 					transition: Bounce,
 				});
 
-				window.location.href = "https://trader-dashboard-final.vercel.app";
+				window.location.href = "https://trader-dashboard-final.vercel.app/";
 			} else {
 				toast(
 					{ message },
