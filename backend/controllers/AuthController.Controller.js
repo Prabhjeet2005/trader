@@ -5,17 +5,18 @@ const bcrypt = require("bcrypt");
 module.exports.SignUp = async (req, res, next) => {
 	try {
 		const { email, password, username } = req.body;
-		 console.log(req.body);
+		console.log(req.body);
 		const existingUser = await User.findOne({ email });
 		if (existingUser) {
-			return res.status(401).json({ message: "User Already Exists!", success: false });
+			return res
+				.status(401)
+				.json({ message: "User Already Exists!", success: false });
 		}
 		const user = await User.create({ email, password, username });
 		const token = createSecretToken(user._id);
 
 		res.cookie("token", token, {
 			withCredentials: true,
-			httpOnly: false,
 		});
 		res
 			.status(201)
@@ -23,7 +24,7 @@ module.exports.SignUp = async (req, res, next) => {
 		next();
 	} catch (error) {
 		console.log(error);
-		res.status(500).json({ message: "User Signup Problem",success:false });
+		res.status(500).json({ message: "User Signup Problem", success: false });
 	}
 };
 
@@ -45,6 +46,7 @@ module.exports.Login = async (req, res, next) => {
 		const token = createSecretToken(user._id);
 		res.cookie("token", token, {
 			httpOnly: false,
+			withCredentials: true,
 		});
 
 		res
