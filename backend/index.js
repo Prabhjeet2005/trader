@@ -16,17 +16,18 @@ const app = express();
 const allowedOrigins = [
 	"https://trader-dashboard-final.vercel.app",
 	"https://trader-frontend-omega.vercel.app",
+	"http://localhost:8000",
 ];
 
 const corsOptions = {
-	origin: function (origin, callback) {
+	origin: [function (origin, callback) {
 		// Allow requests without an origin (e.g., mobile apps, Postman)
 		if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
 			callback(null, true);
 		} else {
 			callback(new Error("Not allowed by CORS"));
 		}
-	},
+	}],
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow necessary methods
 	allowedHeaders: "Content-Type, Authorization", // Ensure necessary headers are allowed
 	credentials: true, // Allow cookies or credentials to be sent across origins
