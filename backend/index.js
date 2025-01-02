@@ -19,12 +19,16 @@ const allowedOrigins = [
 	"http://localhost:8000",
 ];
 
+app.use((req, res, next) => {
+	res.setHeader("Referrer-Policy", "unsafe-url"); // Or use "no-referrer-when-downgrade"
+	next();
+});
+
 const corsOptions = {
 	origin: "*",
-	methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow necessary methods
-	allowedHeaders: "Content-Type, Authorization", // Ensure necessary headers are allowed
+	methods: "GET,POST", // Allow necessary methods
+	allowedHeaders: "*",
 	credentials: true, // Allow cookies or credentials to be sent across origins
-	preflightContinue: false, // Ensure preflight requests are handled
 };
 
 app.use(cors(corsOptions));
@@ -36,7 +40,7 @@ app.use(cookieParser());
 app.use("/", authRoute);
 app.get("/", (req, res) => {
 	res.send("Hi");
-})
+});
 
 app.get("/allPositions", async (req, res) => {
 	const allPositions = await Position.find({});
