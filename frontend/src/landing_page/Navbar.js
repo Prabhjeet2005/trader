@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -65,27 +69,27 @@ const Navbar = () => {
 					<div className="space-y-2 p-4">
 						<Link
 							to="/signup"
-							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="block text-gray-700  active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Signup
 						</Link>
 						<Link
 							to="/about"
-							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="block text-gray-700  active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							About
 						</Link>
 						<Link
 							to="/products"
-							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="block text-gray-700  active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Products
 						</Link>
 						<Link
 							to="/pricing"
-							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="block text-gray-700  active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Pricing
 						</Link>
 						<Link
 							to="/support"
-							className="block text-gray-700 hover:scale-110 active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
+							className="block text-gray-700  active:bg-blue-600 rounded-lg px-2 py-2 font-medium hover:bg-blue-500 hover:text-white transition">
 							Support
 						</Link>
 					</div>
