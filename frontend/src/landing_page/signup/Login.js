@@ -11,7 +11,7 @@ const Signup = () => {
 	const handleGuest = async () => {
 		try {
 			const { data } = await axios.post(
-				"https://trader-pied-phi.vercel.app/login",
+				"https://trader-backend-six.vercel.app/login",
 				{
 					email: "Guest",
 					password: "Guest",
@@ -75,7 +75,7 @@ const Signup = () => {
 		e.preventDefault();
 		try {
 			const { data } = await axios.post(
-				"https://trader-pied-phi.vercel.app/login",
+				"https://trader-backend-six.vercel.app/login",
 				{
 					email: emailForm,
 					password: passwordForm,

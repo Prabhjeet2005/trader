@@ -19,7 +19,7 @@ const BuyStockWindow = ({ uid, price }) => {
 	axios.defaults.withCredentials = true;
 	const handleBuyClick = () => {
 		axios.post(
-			"https://trader-pied-phi.vercel.app/placeOrder",
+			"https://trader-backend-six.vercel.app/placeOrder",
 			{
 				name: uid,
 				qty: stockQuantity,

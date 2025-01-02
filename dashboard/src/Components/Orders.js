@@ -9,14 +9,14 @@ const Orders = () => {
 	const [allOrders, setAllOrders] = useState([]);
 
 	useEffect(() => {
-		axios.get("https://trader-pied-phi.vercel.app/getOrders").then((res) => {
+		axios.get("https://trader-backend-six.vercel.app/getOrders").then((res) => {
 			setAllOrders(res.data);
 		});
 	}, []);
 
 	const handleDelete = (e) => {
 		axios
-			.post("https://trader-pied-phi.vercel.app/deleteOrders", {
+			.post("https://trader-backend-six.vercel.app/deleteOrders", {
 				_id: e,
 			})
 			.then((res) => {

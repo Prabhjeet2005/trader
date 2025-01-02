@@ -6,9 +6,11 @@ import { VerticalGraph } from "./VerticalGraph.js";
 const Holdings = () => {
 	const [allHoldings, setAllHoldings] = useState([]);
 	useEffect(() => {
-		axios.get("https://trader-pied-phi.vercel.app/allHoldings").then((res) => {
-			setAllHoldings(res.data);
-		});
+		axios
+			.get("https://trader-backend-six.vercel.app/allHoldings")
+			.then((res) => {
+				setAllHoldings(res.data);
+			});
 	}, []);
 
 	const labels = allHoldings.map((arr) => arr["name"]);

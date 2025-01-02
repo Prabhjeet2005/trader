@@ -6,9 +6,11 @@ import axios from "axios";
 const Positions = () => {
 	const [allPositions, setAllPositions] = useState([]);
 	useEffect(() => {
-		axios.get("https://trader-pied-phi.vercel.app/allPositions").then((res) => {
-			setAllPositions(res.data);
-		});
+		axios
+			.get("https://trader-backend-six.vercel.app/allPositions")
+			.then((res) => {
+				setAllPositions(res.data);
+			});
 	}, []);
 
 	return (
