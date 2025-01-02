@@ -6,8 +6,7 @@ import axios from "axios";
 const Positions = () => {
 	const [allPositions, setAllPositions] = useState([]);
 	useEffect(() => {
-		axios.get("http://localhost:8000/allPositions")
-			.then((res) => {
+		axios.get("https://trader-pied-phi.vercel.app/allPositions").then((res) => {
 			setAllPositions(res.data);
 		});
 	}, []);

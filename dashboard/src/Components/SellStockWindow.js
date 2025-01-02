@@ -6,11 +6,10 @@ import GeneralContext from "./GeneralContext";
 import Draggable from "react-draggable";
 import axios from "axios";
 
-const SellStockWindow = ({ uid,price }) => {
+const SellStockWindow = ({ uid, price }) => {
 	const [stockQuantity, setStockQuantity] = useState(1);
-  const [stockPrice, setStockPrice] = useState(price);
+	const [stockPrice, setStockPrice] = useState(price);
 	const [priceRequired, setPriceRequired] = useState(price);
-  
 
 	const generalContext = useContext(GeneralContext);
 
@@ -18,8 +17,8 @@ const SellStockWindow = ({ uid,price }) => {
 		generalContext.closeSellWindow();
 	};
 
-  const handleBuyClick = () => {
-    axios.post("http://localhost:8000/sellOrder", {
+	const handleBuyClick = () => {
+		axios.post("https://trader-pied-phi.vercel.app/sellOrder", {
 			name: uid,
 			qty: stockQuantity,
 			price: stockPrice,

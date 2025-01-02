@@ -3,7 +3,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import ClearIcon from "@mui/icons-material/Clear";
 import GeneralContext from "./GeneralContext";
 import { Bounce, ToastContainer, toast } from "react-toastify";
-import Draggable from "react-draggable"
+import Draggable from "react-draggable";
 import axios from "axios";
 
 const BuyStockWindow = ({ uid, price }) => {
@@ -18,7 +18,7 @@ const BuyStockWindow = ({ uid, price }) => {
 	};
 
 	const handleBuyClick = () => {
-		axios.post("http://localhost:8000/placeOrder", {
+		axios.post("https://trader-pied-phi.vercel.app/placeOrder", {
 			name: uid,
 			qty: stockQuantity,
 			price: stockPrice,

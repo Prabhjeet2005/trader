@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 // import { holdings } from "../data/data";
 import axios from "axios";
-import {VerticalGraph} from "./VerticalGraph.js"
+import { VerticalGraph } from "./VerticalGraph.js";
 
 const Holdings = () => {
 	const [allHoldings, setAllHoldings] = useState([]);
 	useEffect(() => {
-		axios.get("http://localhost:8000/allHoldings").then((res) => {
+		axios.get("https://trader-pied-phi.vercel.app/allHoldings").then((res) => {
 			setAllHoldings(res.data);
 		});
 	}, []);
 
-	const labels = allHoldings.map((arr) =>  arr["name"] );
+	const labels = allHoldings.map((arr) => arr["name"]);
 
 	const data = {
 		labels,
@@ -21,10 +21,8 @@ const Holdings = () => {
 				data: allHoldings.map((stock) => stock.qty),
 				backgroundColor: "orange",
 			},
-			
 		],
 	};
-
 
 	return (
 		<>
@@ -66,7 +64,7 @@ const Holdings = () => {
 						const currValue = stock.price * stock.qty;
 						const isProfit = currValue - stock.avg * stock.qty >= 0.0;
 						const profClass = isProfit ? "profit" : "loss";
-						const dayClass = stock.day[0]=='+'?"profit":"loss";
+						const dayClass = stock.day[0] == "+" ? "profit" : "loss";
 						return (
 							<tr key={index}>
 								<td>{stock.name}</td>
@@ -85,7 +83,6 @@ const Holdings = () => {
 				</table>
 			</div>
 			<VerticalGraph data={data} />
-
 		</>
 	);
 };
