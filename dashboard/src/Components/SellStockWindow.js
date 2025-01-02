@@ -16,6 +16,7 @@ const SellStockWindow = ({ uid, price }) => {
 	const handleCancelClick = () => {
 		generalContext.closeSellWindow();
 	};
+	axios.defaults.withCredentials = true;
 
 	const handleBuyClick = () => {
 		axios.post(

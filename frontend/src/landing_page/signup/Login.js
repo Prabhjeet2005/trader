@@ -6,6 +6,7 @@ const Signup = () => {
 	const navigate = useNavigate();
 	const [emailForm, setEmailForm] = useState("");
 	const [passwordForm, setPasswordlForm] = useState("");
+	axios.defaults.withCredentials = true;
 
 	const handleGuest = async () => {
 		try {

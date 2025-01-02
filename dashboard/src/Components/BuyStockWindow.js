@@ -16,7 +16,7 @@ const BuyStockWindow = ({ uid, price }) => {
 	const handleCancelClick = () => {
 		generalContext.closeBuyWindow();
 	};
-
+	axios.defaults.withCredentials = true;
 	const handleBuyClick = () => {
 		axios.post(
 			"https://trader-pied-phi.vercel.app/placeOrder",

@@ -7,6 +7,8 @@ const Signup = () => {
 	const [emailForm, setEmailForm] = useState("");
 	const [nameForm, setNameForm] = useState("");
 	const [passwordForm, setPasswordlForm] = useState("");
+	axios.defaults.withCredentials = true;
+
 	const handleGuest = async () => {
 		try {
 			const { data } = await axios.post(
