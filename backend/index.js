@@ -13,11 +13,26 @@ const authRoute = require("./routes/AuthRoute.js");
 
 const app = express();
 
-app.use(cors());
-
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = [
+	"https://trader-frontend-omega.vercel.app",
+	"https://trader-dashboard-final.vercel.app",
+];
+const corsOptions = {
+	origin: function (origin, callback) {
+		if (allowedOrigins.includes(origin)) {
+			callback(null, true);
+		} else {
+			callback(new Error("Not allowed by CORS"));
+		}
+	},
+	credentials: true,
+};
+app.use(cors(corsOptions));
+
 
 app.use("/", authRoute);
 app.get("/", (req, res) => {
