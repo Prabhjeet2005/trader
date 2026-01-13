@@ -14,8 +14,8 @@ const Signup = () => {
 			const { data } = await axios.post(
 				"https://trader-backend-six.vercel.app/login",
 				{
-					email: "Guest",
-					password: "Guest",
+					email: "test@gmail.com",
+					password: "test",
 				},
 				{
 					withCredentials: true,
@@ -38,22 +38,23 @@ const Signup = () => {
 				});
 
 				window.location.href = "https://trader-dashboard-final.vercel.app";
-			} else {
-				toast(
-					{ message },
-					{
-						position: "top-center",
-						autoClose: 2000,
-						hideProgressBar: false,
-						closeOnClick: true,
-						pauseOnHover: true,
-						draggable: true,
-						progress: undefined,
-						theme: "light",
-						transition: Bounce,
-					}
-				);
-			}
+			} 
+			// else {
+			// 	toast(
+			// 		{ message },
+			// 		{
+			// 			position: "top-center",
+			// 			autoClose: 2000,
+			// 			hideProgressBar: false,
+			// 			closeOnClick: true,
+			// 			pauseOnHover: true,
+			// 			draggable: true,
+			// 			progress: undefined,
+			// 			theme: "light",
+			// 			transition: Bounce,
+			// 		}
+			// 	);
+			// }
 		} catch (error) {
 			console.log(error);
 			toast.error("Something went wrong. Please try again.", {
@@ -103,22 +104,23 @@ const Signup = () => {
 				});
 
 				window.location.href = "https://trader-dashboard-final.vercel.app";
-			} else {
-				toast(
-					{ message },
-					{
-						position: "top-center",
-						autoClose: 2000,
-						hideProgressBar: false,
-						closeOnClick: true,
-						pauseOnHover: true,
-						draggable: true,
-						progress: undefined,
-						theme: "light",
-						transition: Bounce,
-					}
-				);
-			}
+			} 
+			// else {
+			// 	toast(
+			// 		{ message },
+			// 		{
+			// 			position: "top-center",
+			// 			autoClose: 2000,
+			// 			hideProgressBar: false,
+			// 			closeOnClick: true,
+			// 			pauseOnHover: true,
+			// 			draggable: true,
+			// 			progress: undefined,
+			// 			theme: "light",
+			// 			transition: Bounce,
+			// 		}
+			// 	);
+			// }
 		} catch (error) {
 			console.log(error);
 			toast.error("Something went wrong. Please try again.", {
