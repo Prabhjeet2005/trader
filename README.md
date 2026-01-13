@@ -3,9 +3,8 @@
 https://trader-frontend-omega.vercel.app/
 ```
 
-# Trader Frontend
-
-This project is a web application developed using React, CSS, and HTML. It serves as the frontend for the Trader application.
+# Trader
+This project is a web application developed using MongoDb Express Reactjs Nodejs(MERN).
 
 ## Production Link
 
