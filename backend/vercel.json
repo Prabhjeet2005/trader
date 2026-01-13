@@ -15,9 +15,4 @@
       }
     }
   ]
-  ,"env": {
-    "MONGODB_URI":"mongodb+srv://prabhjeetsandhu010:qwertyuiop@traderzerodhacloneclust.o0u1k.mongodb.net/TraderZerodhaCloneCluster?retryWrites=true&w=majority&appName=TraderZerodhaCloneCluster",
-    "TOKEN_KEY":"vabwiel&hJ$32Pmfnbrud83",
-    "TOKEN_EXPIRY":"4d"
-  }
 }
